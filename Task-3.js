@@ -9,22 +9,12 @@ const makeTransaction = (transaction) => {
     setTimeout(() => {
       const canProcess = Math.random() > 0.3;
       if(canProcess) {
-        resolve(transaction)
+        resolve({id: transaction.id, time: delay});
       } else {
-        reject(transaction)
+        reject(transaction.id);
       }
     }, delay);
   });
-
-  // setTimeout(() => {
-  //   const canProcess = Math.random() > 0.3;
-
-  //   if (canProcess) {
-  //     onSuccess(transaction.id, delay);
-  //   } else {
-  //     onError(transaction.id);
-  //   }
-  // }, delay);
 };
 
 const logSuccess = ({id, time}) => {
